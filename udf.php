@@ -16,8 +16,31 @@
     $b = 8;
     $c = sum($a,$b);
     echo "$a + $b = $c <br>";
+    echo "<h3>ทดสอบการใช้ function แบบมีพารามีเตอร์เป็น reference</h3>";
+    $num = 2;
+    echo "Before \$num = $num <br>";
+    add_5($num);
+    add_5($num);
+    echo "After \$num = $num <br>";
+    echo "<hr>";
+    echo "<h3>ทดสอบการใช้ function แบบมีพารามีเตอร์หลายตัว</h3>";
+    $summaryNumber = sumMyNumber(1,2,3,4,5,6,7,8,9);
+    echo "ผลรวมของ (1,2,3,4,5,6,7,8,9) = $summaryNumber";
+    echo "<hr>";
     //----------------------------------
     bye();
+
+    function sumMyNumber(...$x){
+        $sum = 0;
+        foreach ($x as $value) {
+            $sum += $value;
+        }
+        return $sum;
+    }
+
+    function add_5(&$value){
+        $value +=5 ;
+    }
     
     function Hello($yourname){
         echo "<h3>พัฒนาโปรแกรม</h3>";
